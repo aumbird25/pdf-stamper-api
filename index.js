@@ -14,7 +14,9 @@ app.post('/stamp-pdf', async (req, res) => {
     const pages = pdfDoc.getPages();
     const firstPage = pages[0];
 
-    const text = \`เลขที่หนังสือ: \${bookNumber}\nวันที่รับ: \${receiveDate}\nวัตถุประสงค์: \${objective}\`;
+    const text = "เลขที่หนังสือ: " + bookNumber +
+                 "\\nวันที่รับ: " + receiveDate +
+                 "\\nวัตถุประสงค์: " + objective;
 
     firstPage.drawText(text, {
       x: 50,
@@ -32,4 +34,4 @@ app.post('/stamp-pdf', async (req, res) => {
   }
 });
 
-app.listen(port, () => console.log(\`PDF Stamper API running on port \${port}\`));
+app.listen(port, () => console.log("PDF Stamper API running on port " + port));
